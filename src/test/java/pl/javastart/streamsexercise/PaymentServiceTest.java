@@ -90,76 +90,76 @@ class PaymentServiceTest {
 
     }
 
-    @Test
-    void shouldFindProductsSoldInCurrentMonth() {
-        // nazwy sprzedanych produktów w tym miesiącu
-        Set<String> products = paymentService.findProductsSoldInCurrentMonth();
-
-        // then
-        assertThat(products.size()).isEqualTo(3);
-        assertThat(products).contains("Buty do biegania");
-        assertThat(products).contains("Piłka koszykowa");
-        assertThat(products).contains("Kij do baseball");
-    }
-
-    @Test
-    void shouldCountTotalIncomeInApril2019() {
-        // suma sprzedaży w kwietniu 2019
-        BigDecimal total = paymentService.sumTotalForGivenMonth(YearMonth.of(2019, 4));
-
-        assertThat(total).isEqualByComparingTo(BigDecimal.valueOf(390));
-    }
-
-    @Test
-    void shouldCountTotalDiscountsInApril2019() {
-        // suma rabatów w kwietniu 2019
-        BigDecimal total = paymentService.sumDiscountForGivenMonth(YearMonth.of(2019, 4));
-
-        assertThat(total).isEqualByComparingTo(BigDecimal.valueOf(40));
-    }
-
-    @Test
-    void shouldFindPaymentItemsForEdek() {
-        // lista zakupów użytkownika o emailu "edek@gmail.com"
-        List<PaymentItem> items = paymentService.getPaymentsForUserWithEmail("edek@gmail.com");
-
-        assertThat(items.size()).isEqualTo(4);
-    }
-
-    @Test
-    void shouldFindPaymentItemsForKasia() {
-        // lista zakupów użytkownika o emailu "kasia@gmail.com"
-        List<PaymentItem> items = paymentService.getPaymentsForUserWithEmail("kasia@gmail.com");
-
-        assertThat(items.size()).isEqualTo(1);
-    }
-
-    @Test
-    void shouldFindPaymentItemsForAdam() {
-        // lista zakupów użytkownika o emailu "adam@gmail.com"
-        List<PaymentItem> items = paymentService.getPaymentsForUserWithEmail("adam@gmail.com");
-
-        assertThat(items.size()).isEqualTo(5);
-    }
-
-    @Test
-    void shouldFindWithTotalValueOver150() {
-        // paymenty których suma przekracza 180zł
-        Set<Payment> payments = paymentService.findPaymentsWithValueOver(180);
-
-        // then
-        assertThat(payments.size()).isEqualTo(4);
-    }
-
-
-    @Test
-    void shouldFindWithTotalValueOver300() {
-        // paymenty których suma przekracza 300zł
-        Set<Payment> payments = paymentService.findPaymentsWithValueOver(300);
-
-        // then
-        assertThat(payments.size()).isEqualTo(2);
-    }
+//    @Test
+//    void shouldFindProductsSoldInCurrentMonth() {
+//        // nazwy sprzedanych produktów w tym miesiącu
+//        Set<String> products = paymentService.findProductsSoldInCurrentMonth();
+//
+//        // then
+//        assertThat(products.size()).isEqualTo(3);
+//        assertThat(products).contains("Buty do biegania");
+//        assertThat(products).contains("Piłka koszykowa");
+//        assertThat(products).contains("Kij do baseball");
+//    }
+//
+//    @Test
+//    void shouldCountTotalIncomeInApril2019() {
+//        // suma sprzedaży w kwietniu 2019
+//        BigDecimal total = paymentService.sumTotalForGivenMonth(YearMonth.of(2019, 4));
+//
+//        assertThat(total).isEqualByComparingTo(BigDecimal.valueOf(390));
+//    }
+//
+//    @Test
+//    void shouldCountTotalDiscountsInApril2019() {
+//        // suma rabatów w kwietniu 2019
+//        BigDecimal total = paymentService.sumDiscountForGivenMonth(YearMonth.of(2019, 4));
+//
+//        assertThat(total).isEqualByComparingTo(BigDecimal.valueOf(40));
+//    }
+//
+//    @Test
+//    void shouldFindPaymentItemsForEdek() {
+//        // lista zakupów użytkownika o emailu "edek@gmail.com"
+//        List<PaymentItem> items = paymentService.getPaymentsForUserWithEmail("edek@gmail.com");
+//
+//        assertThat(items.size()).isEqualTo(4);
+//    }
+//
+//    @Test
+//    void shouldFindPaymentItemsForKasia() {
+//        // lista zakupów użytkownika o emailu "kasia@gmail.com"
+//        List<PaymentItem> items = paymentService.getPaymentsForUserWithEmail("kasia@gmail.com");
+//
+//        assertThat(items.size()).isEqualTo(1);
+//    }
+//
+//    @Test
+//    void shouldFindPaymentItemsForAdam() {
+//        // lista zakupów użytkownika o emailu "adam@gmail.com"
+//        List<PaymentItem> items = paymentService.getPaymentsForUserWithEmail("adam@gmail.com");
+//
+//        assertThat(items.size()).isEqualTo(5);
+//    }
+//
+//    @Test
+//    void shouldFindWithTotalValueOver150() {
+//        // paymenty których suma przekracza 180zł
+//        Set<Payment> payments = paymentService.findPaymentsWithValueOver(180);
+//
+//        // then
+//        assertThat(payments.size()).isEqualTo(4);
+//    }
+//
+//
+//    @Test
+//    void shouldFindWithTotalValueOver300() {
+//        // paymenty których suma przekracza 300zł
+//        Set<Payment> payments = paymentService.findPaymentsWithValueOver(300);
+//
+//        // then
+//        assertThat(payments.size()).isEqualTo(2);
+//    }
 
     public static class FakePaymentRepository implements PaymentRepository {
 
